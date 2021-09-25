@@ -19,8 +19,11 @@
  * several arguments. Do NOT put a semicolon character at the end of 
  * directives. This is a common mistake.
  */
-#define LED_GREEN   PB5 // AVR pin where green LED is connected
-#define SHORT_DELAY 16 // Delay in milliseconds
+#define LED_GREEN   PB5     // AVR pin where green LED is connected
+#define DOT_DELAY   200     // delay when make dot
+#define BREAK_DELAY 600     // delay between character
+#define LONG_DELAY  1400    // pause between words 7 dots long
+
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -44,20 +47,48 @@ int main(void)
     // Set pin as output in Data Direction Register
     // DDRB = DDRB or 0010 0000
     DDRB = DDRB | (1<<LED_GREEN);
-
+    
     // Set pin LOW in Data Register (LED off)
     // PORTB = PORTB and 1101 1111
     PORTB = PORTB & ~(1<<LED_GREEN);
-
+    int x;
     // Infinite loop
     while (1)
     {
+        
         // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
+        _delay_ms(LONG_DELAY);
+        // WORD = "SOS" 
+        // WORD IN MORSE = "... --- ..." + break between words
 
-        // Invert LED in Data Register
-        // PORTB = PORTB xor 0010 0000
-        PORTB = PORTB ^ (1<<LED_GREEN);
+
+        // S ...
+        for (x = 1; x<=3; x++)
+        {
+            PORTB = PORTB ^ (1<<LED_GREEN);     //LED ON
+            _delay_ms(DOT_DELAY);
+            PORTB = PORTB & ~(1<<LED_GREEN);    //LED OFF
+            _delay_ms(DOT_DELAY);
+        }
+        _delay_ms(BREAK_DELAY);
+        // O ---
+        for (x = 1; x<=3; x++)
+        {
+            PORTB = PORTB ^ (1<<LED_GREEN);     //LED ON
+            _delay_ms(BREAK_DELAY);
+            PORTB = PORTB & ~(1<<LED_GREEN);    //LED OFF
+            _delay_ms(DOT_DELAY);
+        }
+        _delay_ms(BREAK_DELAY);
+        // S ...
+        for (x = 1; x<=3; x++)
+        {
+            PORTB = PORTB ^ (1<<LED_GREEN);     //LED ON
+            _delay_ms(DOT_DELAY);
+            PORTB = PORTB & ~(1<<LED_GREEN);    //LED OFF
+            _delay_ms(DOT_DELAY);
+        }
+        
     }
 
     // Will never reach this
