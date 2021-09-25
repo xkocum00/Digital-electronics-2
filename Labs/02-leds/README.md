@@ -2,7 +2,7 @@
 ## Preparation tasks (done before the lab at home)
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
-
+![circuit](IMAGES/img1.png)
 &nbsp;
 
 &nbsp;
@@ -18,7 +18,7 @@
 2. [Calculate LED resistor value](https://electronicsclub.info/leds.htm) for typical red and blue LEDs.
 
 &nbsp;
-![ohms law](Images/ohms_law.png)
+![ohms law](IMAGES/ohms_law.png)
 &nbsp;
 
 | **LED color** | **Supply voltage** | **LED current** | **LED voltage** | **Resistor value** |
