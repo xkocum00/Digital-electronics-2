@@ -1,6 +1,6 @@
 # Lab 1: FILIP KOCUM
 
-[https://github.com/xkocum00/Digital-electronics-2] (https://github.com/xkocum00/Digital-electronics-2)
+[github link of my repository](https://github.com/xkocum00/Digital-electronics-2)
 ### Blink example
 
 1. What is the meaning of the following binary operators in C?
@@ -106,4 +106,4 @@ int main(void)
 
 2. Scheme of Morse code application, i.e. connection of AVR device, LED, resistor, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 
-   ![your figure](img1)
+   ![image](img1.PNG)
