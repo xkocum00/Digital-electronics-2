@@ -2,7 +2,7 @@
 ## Preparation tasks (done before the lab at home)
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
-
+![circuit](IMAGES/img1.png)
 &nbsp;
 
 &nbsp;
