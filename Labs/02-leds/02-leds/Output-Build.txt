@@ -1,0 +1,39 @@
+﻿------ Build started: Project: 02-leds, Configuration: Debug AVR ------
+Build started.
+Project "02-leds.cppproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "C:\APPZ\Atmel\Studio\7.0\Vs\Compiler.targets" from project "D:\Documents\xkocum00\Digital-electronics-2\Labs\02-leds\02-leds\02-leds\02-leds.cppproj" (target "Build" depends on it):
+	Using "RunCompilerTask" task from assembly "C:\APPZ\Atmel\Studio\7.0\Extensions\Application\AvrGCC.dll".
+	Task "RunCompilerTask"
+		Shell Utils Path C:\APPZ\Atmel\Studio\7.0\shellUtils
+		C:\APPZ\Atmel\Studio\7.0\shellUtils\make.exe all --jobs --output-sync 
+		Building file: .././main.cpp
+		Invoking: AVR8/GNU C Compiler : 5.4.0
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe" -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\APPZ\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\APPZ\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega328p" -c -MD -MP -MF "main.d" -MT"main.d" -MT"main.o"   -o "main.o" ".././main.cpp" 
+		Finished building: .././main.cpp
+		Building target: 02-leds.elf
+		Invoking: AVR8/GNU Linker : 5.4.0
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe" -o 02-leds.elf  main.o   -Wl,-Map="02-leds.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega328p -B "C:\APPZ\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega328p"  
+		Finished building target: 02-leds.elf
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "02-leds.elf" "02-leds.hex"
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "02-leds.elf" "02-leds.eep" || exit 0
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "02-leds.elf" > "02-leds.lss"
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "02-leds.elf" "02-leds.srec"
+		"C:\APPZ\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "02-leds.elf"
+		   text	   data	    bss	    dec	    hex	filename
+		    216	      0	      0	    216	     d8	02-leds.elf
+	Done executing task "RunCompilerTask".
+	Using "RunOutputFileVerifyTask" task from assembly "C:\APPZ\Atmel\Studio\7.0\Extensions\Application\AvrGCC.dll".
+	Task "RunOutputFileVerifyTask"
+				Program Memory Usage 	:	216 bytes   0,7 % Full
+				Data Memory Usage 		:	0 bytes   0,0 % Full
+				Warning: Memory Usage estimation may not be accurate if there are sections other than .text sections in ELF file
+	Done executing task "RunOutputFileVerifyTask".
+Done building target "CoreBuild" in project "02-leds.cppproj".
+Target "PostBuildEvent" skipped, due to false condition; ('$(PostBuildEvent)' != '') was evaluated as ('' != '').
+Target "Build" in file "C:\APPZ\Atmel\Studio\7.0\Vs\Avr.common.targets" from project "D:\Documents\xkocum00\Digital-electronics-2\Labs\02-leds\02-leds\02-leds\02-leds.cppproj" (entry point):
+Done building target "Build" in project "02-leds.cppproj".
+Done building project "02-leds.cppproj".
+
+Build succeeded.
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========
