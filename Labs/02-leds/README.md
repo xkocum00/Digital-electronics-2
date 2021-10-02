@@ -93,7 +93,8 @@ int main(void)
 
     // Configure the second LED at port C
     // WRITE YOUR CODE HERE
-
+    DDRC = DDRC | (1<<LED_GREEN1);
+    PORTC = PORTC & ~(1<<LED_GREEN1);
     // Infinite loop
     while (1)
     {
@@ -101,6 +102,12 @@ int main(void)
         _delay_ms(BLINK_DELAY);
 
         // WRITE YOUR CODE HERE
+        PORTB = PORTB ^ (1<<LED_GREEN);     //LED ON
+        _delay_ms(BLINK_DELAY);
+        PORTB = PORTB & ~(1<<LED_GREEN);    //LED OFF
+        PORTC = PORTC ^ (1<<LED_GREEN1);     //LED ON
+        _delay_ms(BLINK_DELAY);
+        PORTC = PORTC & ~(1<<LED_GREEN1);    //LED OFF
     }
 
     // Will never reach this
