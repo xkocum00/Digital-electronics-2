@@ -33,22 +33,19 @@ int main(void)
     // Green LED at port B
     // Set pin as output in Data Direction Register...
     DDRB = DDRB | (1<<LED_GREEN);
-    PORTB = PORTB & ~(1<<LED_GREEN);
-    DDRC = DDRC | (1<<LED_GREEN1);
-    PORTC = PORTC & ~(1<<LED_GREEN1);
-    
-
+    DDRC = DDRC | (1<<LED_GREEN1);    
     // Configure Push button at port D and enable internal pull-up resistor
     DDRD = DDRD | (1<<BUTTON);
-    // ...and turn LED off in Data Register
     PORTD = PORTD & ~(1<<BUTTON);
-
     // Infinite loop
     while (1)
     {
         if(bit_is_clear(PIND, PD0)) 
             {
-                PORTC = 
+                _delay_ms(BLINK_DELAY);
+                //led toogling only if button is pressed
+                PORTC = PORTC ^ (1<<LED_GREEN);       
+                PORTB = PORTB ^ (1<<LED_GREEN1);                     
         
         
             }
