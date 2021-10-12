@@ -31,8 +31,38 @@
 2. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Use function from your GPIO library. Let the push button is connected to port D:
 
 ```c
+#define LED_GREEN   PB5     // AVR pin where green LED is connected
+#define LED_RED     PC1
+#define BUTTON      PD1
+#define BLINK_DELAY 500
+#ifndef F_CPU
+# define F_CPU 16000000     // CPU frequency in Hz required for delay
+#endif
+
+/* Includes ----------------------------------------------------------*/
+#include <util/delay.h>     // Functions for busy-wait delay loops
+#include <avr/io.h>         // AVR device-specific IO definitions
+#include "gpio.h"           // GPIO library for AVR-GCC
+
+/* Function definitions ----------------------------------------------*/
+/**********************************************************************
+ * Function: Main function where the program execution begins
+ * Purpose:  Toggle two LEDs when a push button is pressed. Functions 
+ *           from user-defined GPIO library is used.
+ * Returns:  none
+ **********************************************************************/
+int main(void)
+{
+    // Green LED at port B
+    GPIO_config_output(&DDRB, LED_GREEN);
+    GPIO_write_low(&PORTB, LED_GREEN);
+
+    // Configure the second LED at port C
+    GPIO_config_output(&DDRC, LED_RED);
+    GPIO_write_low(&PORTC, LED_RED);
+
     // Configure Push button at port D and enable internal pull-up resistor
-    // WRITE YOUR CODE HERE
+    GPIO_config_input_pullup(&DDRD, BUTTON);
 
     // Infinite loop
     while (1)
@@ -41,7 +71,15 @@
         _delay_ms(BLINK_DELAY);
 
         // WRITE YOUR CODE HERE
+        if (GPIO_read(&PIND, BUTTON) == 0) {
+            GPIO_toggle(&PORTC, LED_RED);
+            GPIO_toggle(&PORTB, LED_GREEN);
+        }            
     }
+
+    // Will never reach this
+    return 0;
+}
 ```
 
 
@@ -49,4 +87,4 @@
 
 1. Scheme of traffic light application with one red/yellow/green light for cars and one red/green light for pedestrians. Connect AVR device, LEDs, resistors, one push button (for pedestrians), and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 
-   ![your figure](Images/traffic.png)
+   ![your figure](IMAGES/img1.png)
