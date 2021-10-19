@@ -18,8 +18,8 @@
 ### Timer library
 
 1. In your words, describe the difference between common C function and interrupt service routine.
-   * Function
-   * Interrupt service routine
+   * Function - funguje jako callback, vykoná příkazy.
+   * Interrupt service routine - zastaví program a vykoná jednoduché příkazy.
 
 2. Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:
 
