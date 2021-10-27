@@ -1,4 +1,8 @@
 # Lab 6: YOUR_FIRSTNAME FAMILYNAME
+Link to your `Digital-electronics-2` GitHub repository:
+
+[https://github.com/your-github-account/repository-name/lab_name](https://github.com/...)
+
    | **Function name** | **Function parameters** | **Description** | **Example** |
    | :-- | :-- | :-- | :-- |
    | `lcd_init` | `LCD_DISP_OFF`<br>`LCD_DISP_ON`<br>`LCD_DISP_ON_CURSOR`<br>`LCD_DISP_ON_CURSOR_BLINK` | Display off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `lcd_init(LCD_DISP_OFF);`<br>&nbsp;<br>&nbsp;<br>&nbsp; |
@@ -8,9 +12,7 @@
    | `lcd_puts` | | Display string without auto linefeed.| |
    | `lcd_command` | |Send LCD controller instruction command. | |
    | `lcd_data` | | Send data byte to LCD controller.| |
-Link to your `Digital-electronics-2` GitHub repository:
 
-[https://github.com/your-github-account/repository-name/lab_name](https://github.com/...)
 
 
 ### LCD display module
