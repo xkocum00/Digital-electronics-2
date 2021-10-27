@@ -37,18 +37,21 @@ int main(void)
     int i;
     // Test of SSD: display number '3' at position 0
     //                      abcdefgDP
+<<<<<<< HEAD
     for (i = 1; i < 10; i++)
     {
         SEG_update_shift_regs(i, 2); _delay_ms(1500); 
     }
+=======
+>>>>>>> c02de281dff6ed26f26062c8c02ad71630d4d89b
     
     
     // Configure 16-bit Timer/Counter1 for Decimal counter
     // Set the overflow prescaler to 262 ms and enable interrupt
-
     TIM1_overflow_262ms() ;
-    
+    TIM0_overflow_4ms() ;
     TIM1_overflow_interrupt_enable();
+    TIM0_overflow_interrupt_enable();
     
     // Enables interrupts by setting the global interrupt mask
 
@@ -64,14 +67,16 @@ int main(void)
     return 0;
 }
 
-/* Interrupt service routines ----------------------------------------*/
 /**********************************************************************
  * Function: Timer/Counter1 overflow interrupt
- * Purpose:  Increment decimal counter value and display it on SSD.
+ * Purpose:  Increment counter value from 00 to 59.
  **********************************************************************/
+uint8_t sec = 0;
+uint8_t min = 0;
 ISR(TIMER1_OVF_vect)
 {
     
+<<<<<<< HEAD
     static uint8_t val = 0;  // This line will only run the first time
     
     val++;
@@ -81,4 +86,34 @@ ISR(TIMER1_OVF_vect)
         val =0;
         
     SEG_update_shift_regs(val, 2);
+=======
+    sec++;
+    if(sec > 9){
+        sec =0;
+        min++;
+        if (min > 5){
+            min = 0;
+        }
+        
+        }    
+
+}
+/**********************************************************************
+ * Function: Timer/Counter0 overflow interrupt
+ * Purpose:  Display tens and units of a counter at SSD.
+ **********************************************************************/
+ISR(TIMER0_OVF_vect)
+{
+    static uint8_t pos = 0;
+    if (pos == 0){
+        SEG_update_shift_regs(sec,0);
+    }
+    else if (pos == 1){
+        SEG_update_shift_regs(min,1);
+    }
+    pos++;
+    if (pos > 1) {
+        pos = 0;
+    }
+>>>>>>> c02de281dff6ed26f26062c8c02ad71630d4d89b
 }
