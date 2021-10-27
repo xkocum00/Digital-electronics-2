@@ -14,6 +14,9 @@
 #include <avr/interrupt.h>  // Interrupts standard C library for AVR-GCC
 #include "timer.h"          // Timer library for AVR-GCC
 #include "segment.h"        // Seven-segment display library for AVR-GCC
+#include <stdio.h>
+#include <stdlib.h>
+#include <util/delay.h>
 
 /* Function definitions ----------------------------------------------*/
 
@@ -31,10 +34,14 @@ int main(void)
 {
     // Configure SSD signals
     SEG_init();
-
+    int i;
     // Test of SSD: display number '3' at position 0
     //                      abcdefgDP
-    SEG_update_shift_regs(3, 0);
+    for (i = 1; i < 10; i++)
+    {
+        SEG_update_shift_regs(i, 2); _delay_ms(1500); 
+    }
+    
     
     // Configure 16-bit Timer/Counter1 for Decimal counter
     // Set the overflow prescaler to 262 ms and enable interrupt
@@ -69,8 +76,9 @@ ISR(TIMER1_OVF_vect)
     
     val++;
     
+    
     if(val > 9)
         val =0;
         
-    SEG_update_shift_regs(val, 0);
+    SEG_update_shift_regs(val, 2);
 }
