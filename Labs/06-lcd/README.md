@@ -1,4 +1,4 @@
-# Lab 6: YOUR_FIRSTNAME FAMILYNAME
+# Lab 6: FILIP_KOCUM
 Link to your `Digital-electronics-2` GitHub repository:
 
 [github link of my repository](https://github.com/xkocum00/Digital-electronics-2)
