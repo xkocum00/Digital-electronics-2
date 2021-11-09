@@ -105,7 +105,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);					  // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("none   ");				  // Put button name here
-        uart_puts("none");
+        uart_puts(lcd_string); uart_puts("\n\r");
         
         }else if(value >= 630){
         
@@ -113,7 +113,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("Select  ");               // Put button name here
-        uart_puts("Select");
+       uart_puts(lcd_string); uart_puts("\n\r");
         
         }else if(value >= 400){
         
@@ -121,7 +121,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("Left     ");               // Put button name here
-        uart_puts("Left");
+        uart_puts(lcd_string); uart_puts("\n\r");
         
         }else if(value >= 246){
 
@@ -129,7 +129,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);                 // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("Down     ");				// Put button name here
-        uart_puts("Down");
+        uart_puts(lcd_string); uart_puts("\n\r");
         
         }else if(value >= 98){
 
@@ -137,7 +137,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("Up     ");					// Put button name here
-        uart_puts("Up");
+        uart_puts(lcd_string); uart_puts("\n\r");
         
         }else{
         
@@ -146,7 +146,7 @@ ISR(ADC_vect)
         itoa(value, lcd_string, 16);
         lcd_gotoxy(13,0); lcd_puts(lcd_string);                 // Put ADC value in hexadecimal
         lcd_gotoxy(8, 1); lcd_puts("Right     ");				 // Put button name here
-        uart_puts("Right");
+        uart_puts(lcd_string); uart_puts("\n\r");
     }
 
 
