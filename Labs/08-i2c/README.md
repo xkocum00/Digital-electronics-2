@@ -4,6 +4,16 @@ Link to this file in your GitHub repository:
 
 [github link of my repository](https://github.com/xkocum00/Digital-electronics-2)
 
+1. Use the [`twi.h`](../../Examples/library/include/twi.h) header file from the I2C/TWI library to complete the description of the functions in the following table.
+
+   | **Function name** | **Function parameters** | **Description** | **Example** |
+   | :-- | :-- | :-- | :-- |
+   | `twi_init` | None | Initialize TWI, enable internal pull-up resistors, and set SCL frequency | `twi_init();` |
+   | `twi_start` | 0 - Slave device accessible, 1 - Failed to access slave device |Start communication on TWI bus and send address of TWI slave. | `twi_start((addr<<1)+TWI_READ);` |
+   | `twi_write` |  | <br>&nbsp; |  |
+   | `twi_read_ack` | <br>&nbsp; |  |  |
+   | `twi_read_nack` | <br>&nbsp; |  |  |
+   | `twi_stop` |  |  | `twi_stop();` |
 ### Arduino Uno pinout
 
 1. In the picture of the Arduino Uno board, mark the pins that can be used for the following functions:
