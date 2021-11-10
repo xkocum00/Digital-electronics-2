@@ -27,15 +27,68 @@ Link to this file in your GitHub repository:
  **********************************************************************/
 ISR(ADC_vect)
 {
+    // WRITE YOUR CODE HERE
+    
     uint16_t value = 0;
     char lcd_string[4] = "0000";
 
-    value = ADC;                  // Copy ADC result to 16-bit variable
-    itoa(value, lcd_string, 10);  // Convert decimal value to string
+    value = ADC;    // Copy ADC result to 16-bit variable
+    itoa(value, lcd_string, 10);               // Convert decimal value to string
+ 
+    lcd_clrscr();
+    lcd_gotoxy(1, 0); lcd_puts("value:");
+    lcd_gotoxy(3, 1); lcd_puts("key:");
+    
+    
+    if(value >= 1022){
+        
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);				  // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);					  // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("none   ");				  // Put button name here
+        uart_puts(lcd_string); uart_puts("\n\r");
+        
+        }else if(value >= 630){
+        
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);				  // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("Select  ");               // Put button name here
+       uart_puts(lcd_string); uart_puts("\n\r");
+        
+        }else if(value >= 400){
+        
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);                // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("Left     ");               // Put button name here
+        uart_puts(lcd_string); uart_puts("\n\r");
+        
+        }else if(value >= 246){
 
-    // WRITE YOUR CODE HERE
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);                 // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);                 // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("Down     ");				// Put button name here
+        uart_puts(lcd_string); uart_puts("\n\r");
+        
+        }else if(value >= 98){
 
-}
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);                 // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);               // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("Up     ");					// Put button name here
+        uart_puts(lcd_string); uart_puts("\n\r");
+        
+        }else{
+        
+
+        lcd_gotoxy(8, 0); lcd_puts(lcd_string);                  // Put ADC value in decimal
+        itoa(value, lcd_string, 16);
+        lcd_gotoxy(13,0); lcd_puts(lcd_string);                 // Put ADC value in hexadecimal
+        lcd_gotoxy(8, 1); lcd_puts("Right     ");				 // Put button name here
+        uart_puts(lcd_string); uart_puts("\n\r");
+    }
 ```
 
 
@@ -43,11 +96,11 @@ ISR(ADC_vect)
 
 1. (Hand-drawn) picture of UART signal when transmitting three character data `De2` in 4800 7O2 mode (7 data bits, odd parity, 2 stop bits, 4800&nbsp;Bd).
 
-   ![your figure]()
+   ![your figure](IMAGES/img1.jpg)
 
 2. Flowchart figure for function `uint8_t get_parity(uint8_t data, uint8_t type)` which calculates a parity bit of input 8-bit `data` according to parameter `type`. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
 
-   ![your figure]()
+   ![your figure](IMAGES/img2.png)
 
 
 ### Temperature meter
@@ -56,4 +109,4 @@ Consider an application for temperature measurement and display. Use temperature
 
 1. Scheme of temperature meter. The image can be drawn on a computer or by hand. Always name all components and their values.
 
-   ![your figure]()
+   ![your figure](IMAGES/img3.png)
