@@ -9,11 +9,11 @@ Link to this file in your GitHub repository:
    | **Function name** | **Function parameters** | **Description** | **Example** |
    | :-- | :-- | :-- | :-- |
    | `twi_init` | None | Initialize TWI, enable internal pull-up resistors, and set SCL frequency | `twi_init();` |
-   | `twi_start` | 0 - Slave device accessible, 1 - Failed to access slave device |Start communication on TWI bus and send address of TWI slave. | `twi_start((addr<<1)+TWI_READ);` |
-   | `twi_write` |  | <br>&nbsp; |  |
-   | `twi_read_ack` | <br>&nbsp; |  |  |
-   | `twi_read_nack` | <br>&nbsp; |  |  |
-   | `twi_stop` |  |  | `twi_stop();` |
+   | `twi_start` | 0 - Slave device accessible, 1 - Failed to access slave device |Start communication on TWI bus and      send address of TWI slave. | `twi_start((addr<<1)+TWI_READ);` |
+   | `twi_write` | none | Send one data byte to TWI slave device. | twi_write() |
+   | `twi_read_ack` | Received data byte| Read one byte from TWI slave device and acknowledge it by ACK. | twi_read_ack() |
+   | `twi_read_nack` | Received data byte| Read one byte from TWI slave device and acknowledge it by NACK. | twi_read_nack() |
+   | `twi_stop` | none | Generates stop condition on TWI bus. | `twi_stop();` |
 ### Arduino Uno pinout
 
 1. In the picture of the Arduino Uno board, mark the pins that can be used for the following functions:
